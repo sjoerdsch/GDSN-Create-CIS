@@ -28,7 +28,10 @@ data_pool_gln = '8712345013042'
 
 cntr = 1
 b_nr = 1
+
+# To prevent overloading the data pool the messages are split up in batches  
 batch_size = 100
+
 batch = f".\output\\{source_file}\\batch_001"
 if not os.path.exists(batch):
     os.makedirs(batch)
