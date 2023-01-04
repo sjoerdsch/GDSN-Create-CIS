@@ -18,3 +18,5 @@ create_cis.py test_file
    In the created directory there a one or more batches with CIS messages
    
 4. Upload the xml files via FTP or AS2 to your GDSN data pool
+
+5. Messages will be processed by the datapool
