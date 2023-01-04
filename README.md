@@ -12,15 +12,12 @@ More informaion about GDSN: https://www.gs1.org/services/gdsn
 **Usage**
 1. Create a csv file in the input directory with the structure:
 
-gln_dr,gln_ds,tm
+> gln_dr,gln_ds,tm
+> 8710626000002,8719333002682,528
 
-8710626000002,8719333002682,528
-
-gln_dr = GLN Data recipient
-
-gln_ds = GLN Data source
-
-tm = target_market
+> gln_dr = GLN Data recipient
+> gln_ds = GLN Data source
+> tm = target_market
 
 2. Change (if needed) the data_pool_gln in the source code
 
