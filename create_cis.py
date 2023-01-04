@@ -1,6 +1,6 @@
 """
 Program to create GDSN Catalogue Item Subscription (CIS) messages based on a list of supplier GLNS.
-After creation you can upload them vid FTP or AS2 to your GDSN data pool.
+After creation you can upload them via FTP or AS2 to your GDSN data pool.
 """
 import csv
 import sys
@@ -22,6 +22,9 @@ else:
 
 headers = ['gln_dr','gln_ds','tm']
 infile = ".\input\\" + source_file + ".csv"
+
+# Change this to the GLN of your data pool
+data_pool_gln = '8712345013042'
 
 cntr = 1
 b_nr = 1
@@ -57,7 +60,7 @@ with open(infile, 'r', encoding='utf-8', errors='ignore') as fp:
             outfile.write(f'<sh:Identifier Authority="GS1">{row.get("gln_dr")}</sh:Identifier>\n')
             outfile.write('</sh:Sender>\n')
             outfile.write('<sh:Receiver>\n')
-            outfile.write('<sh:Identifier Authority="GS1">8712345013042</sh:Identifier>\n')
+            outfile.write(f'<sh:Identifier Authority="GS1">{data_pool_gln}</sh:Identifier>\n')
             outfile.write('</sh:Receiver>\n')
             outfile.write('<sh:DocumentIdentification>\n')
             outfile.write('<sh:Standard>GS1</sh:Standard>\n')
