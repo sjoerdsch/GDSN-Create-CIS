@@ -37,7 +37,6 @@ if not os.path.exists(batch):
     os.makedirs(batch)
 
 with open(infile, 'r', encoding='utf-8', errors='ignore') as fp:
-    gtin_list = []
 
     reader = csv.DictReader(fp, fieldnames=headers, skipinitialspace=True)
     for row in reader:
