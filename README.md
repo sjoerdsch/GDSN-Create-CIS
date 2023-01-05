@@ -7,7 +7,7 @@ Program to create GDSN Catalogue Item Subscription (CIS) messages for a data rec
 The CIS message is used by a data recipient create a subscription for the data of a certain supplier. The data recipient will receive
 data if a publication from the supplier is in place.
 
-More information about GDSN: https://www.gs1.org/services/gdsn
+More information about Global Data Synchronisation Network (GDSN): https://www.gs1.org/services/gdsn
 
 **Usage**
 1. Create a csv file in the input directory with the structure:

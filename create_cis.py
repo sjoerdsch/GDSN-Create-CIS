@@ -1,6 +1,6 @@
 """
 Program to create GDSN Catalogue Item Subscription (CIS) messages based on a list of supplier GLNS.
-After creation you can upload them via FTP or AS2 to your GDSN data pool.
+Author: Sjoerd Schaper - GS1 Nederland
 """
 import csv
 import sys
