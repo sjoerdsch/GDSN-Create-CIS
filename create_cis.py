@@ -50,7 +50,7 @@ with open(infile, 'r', encoding='utf-8', errors='ignore') as fp:
             inst_id = get_random_string(8)
             if cntr % batch_size == 0:
                 b_nr = b_nr + 1
-                os.path.join('output',source_file, 'batch_' + str(b_nr).zfill(3))
+                batch = os.path.join('output',source_file, 'batch_' + str(b_nr).zfill(3))
                 if not os.path.exists(batch):
                     os.makedirs(batch)
             file_name = os.path.join(batch, f'CIS_{source_file.upper()}_{row.get("gln_dr")}_{row.get("gln_ds")}_{file_id}.xml')
