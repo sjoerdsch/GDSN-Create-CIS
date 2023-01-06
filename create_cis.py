@@ -21,7 +21,7 @@ else:
     source_file = "test_file"
 
 headers = ['gln_dr','gln_ds','tm']
-infile = ".\input\\" + source_file + ".csv"
+infile = os.path.join('input', source_file + '.csv')
 
 # Change this to the GLN of your data pool
 data_pool_gln = '8712345013042'
@@ -32,7 +32,7 @@ b_nr = 1
 # To prevent overloading the data pool the messages are split up in batches  
 batch_size = 100
 
-batch = f".\output\\{source_file}\\batch_001"
+batch = os.path.join('output',source_file,'batch_001')
 if not os.path.exists(batch):
     os.makedirs(batch)
 
@@ -49,7 +49,7 @@ with open(infile, 'r', encoding='utf-8', errors='ignore') as fp:
             inst_id = get_random_string(8)
             if cntr % batch_size == 0:
                 b_nr = b_nr + 1
-                batch = f'.\output\\{source_file}\\batch_' + str(b_nr).zfill(3)
+                os.path.join('output',source_file, 'batch_' + str(b_nr).zfill(3))
                 if not os.path.exists(batch):
                     os.makedirs(batch)
             file_name = batch + '\\' + "CIS_" + source_file.upper() + "_" + row.get('gln_dr') + "_" + row.get('gln_ds') + "_" + file_id +  ".xml"
