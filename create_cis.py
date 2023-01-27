@@ -45,8 +45,7 @@ with open(infile, 'r', encoding='utf-8', errors='ignore') as fp:
 
     reader = csv.DictReader(fp, fieldnames=headers, skipinitialspace=True)
     for row in reader:
-        print(row.get('gln_dr'))
-        if row.get('gln_dr') != "'gln_dr'":
+        if row.get('gln_dr') != 'gln_dr':
 
             print(f"gln_ds: {row.get('gln_ds')}, gpc: {row.get('gpc')}, gtin: {row.get('gtin')}, tm: {row.get('tm')}")
             time_sys = time.strftime("%Y-%m-%dT%H:%M:%S")

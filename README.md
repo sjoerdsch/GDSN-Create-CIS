@@ -14,7 +14,7 @@ More information about Global Data Synchronisation Network (GDSN): https://www.g
 
 The input file has all possible parameters in it. 
 
-> 'gln_dr','gln_ds','gpc','gtin','tm'
+> gln_dr,gln_ds,gpc,gtin,tm
 
 > gln_dr = gln data recipient
 
