@@ -12,15 +12,18 @@ More information about Global Data Synchronisation Network (GDSN): https://www.g
 **Usage**
 1. Create a csv file in the input directory with the structure:
 
-> gln_dr,gln_ds,tm
+The input file has all possible parameters in it. 
 
-> 8710626000002,8719333002682,528
-
-> gln_dr = GLN Data recipient
-
-> gln_ds = GLN Data source
-
-> tm = target_market
+> 'gln_dr','gln_ds','gpc','gtin','tm'
+> gln_dr = gln data recipient
+> gln_ds = gln data source
+> gpc = global product classification
+> gtin = global trade item number
+> tm = target market
+> gln_dr and tm are mandatory
+> values not used should be 0 (zero)
+> combination of gpc and gtin is not allowed
+> see test_file.csv for examples
 
 2. Change (if needed) the data_pool_gln in the source code
 

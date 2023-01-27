@@ -9,6 +9,7 @@ import time
 import os
 import random
 import string
+from pathlib import Path
 
 def get_random_string(length):
     letters = string.ascii_uppercase
@@ -21,8 +22,11 @@ if len(sys.argv) > 1:
 else:
     source_file = "test_file"
 
-headers = ['gln_dr','gln_ds','tm']
-infile = os.path.join('input', source_file + '.csv')
+# The input file has all possible parameters in it. 
+# see README for a explanation
+
+headers = ['gln_dr','gln_ds','gpc','gtin', 'tm']
+infile = Path(f'./input/{source_file}.csv')
 
 # Change this to the GLN of your data pool
 data_pool_gln = '8712345013042'
@@ -41,9 +45,10 @@ with open(infile, 'r', encoding='utf-8', errors='ignore') as fp:
 
     reader = csv.DictReader(fp, fieldnames=headers, skipinitialspace=True)
     for row in reader:
-        if row.get('gln_dr') != 'gln_dr':
+        print(row.get('gln_dr'))
+        if row.get('gln_dr') != "'gln_dr'":
 
-            print(row.get('gln_ds'))
+            print(f"gln_ds: {row.get('gln_ds')}, gpc: {row.get('gpc')}, gtin: {row.get('gtin')}, tm: {row.get('tm')}")
             time_sys = time.strftime("%Y-%m-%dT%H:%M:%S")
             timestr = time.strftime("%Y_%m_%dT%H_%M_%S")
             file_id = get_random_string(8)
@@ -105,7 +110,12 @@ with open(infile, 'r', encoding='utf-8', errors='ignore') as fp:
             outfile.write('</contentOwner>\n')
             outfile.write('</catalogueItemSubscriptionIdentification>\n')
             outfile.write(f'<dataRecipient>{row.get("gln_dr")}</dataRecipient>\n')
-            outfile.write(f'<dataSource>{row.get("gln_ds")}</dataSource>\n')
+            if row.get("gln_ds") != '0':
+                outfile.write(f'<dataSource>{row.get("gln_ds")}</dataSource>\n')
+            if row.get("gpc") != '0':
+                outfile.write(f'<gpcCategoryCode>{row.get("gpc")}</gpcCategoryCode>\n')
+            if row.get("gtin") != '0':
+                outfile.write(f'<gtin>{row.get("gtin")}</gtin>\n')
             outfile.write('<targetMarket>\n')
             outfile.write(f'<targetMarketCountryCode>{row.get("tm")}</targetMarketCountryCode>\n')
             outfile.write('</targetMarket>\n')
